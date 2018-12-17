@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
-    "expo": "^31.0.2",
-    "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "expo": "^27.0.1",
+    "react": "16.3.1",
+    "react-native": "0.55.4",
     "react-navigation": "^2.18.2",
     "vue-native-core": "0.0.8",
     "vue-native-helper": "0.0.9"

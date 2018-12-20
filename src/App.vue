@@ -6,15 +6,28 @@
           </nb-body>
           <nb-right />
         </nb-header>
-        <nb-content :scrollEnabled="false">
-            <nb-swipe-row
-                :leftOpenValue="75"
-                :rightOpenValue="-75"
-                :left="getSwipeLeftComponet()"
-                :right="getSwipeRightComponet()"
-                :body="getSwipeBodyComponet()"
-            />
-        </nb-content>
+      <nb-header />
+      <nb-content padder>
+        <nb-form>
+            <nb-item fixedLabel>
+                <nb-label>Username</nb-label>
+                <nb-input />
+            </nb-item>
+            <nb-item fixedLabel last>
+                <nb-label>Password</nb-label>
+                <nb-input v-if="!isShowpasswords" secureTextEntry />
+                <nb-input v-else="isShowpasswords"/>
+            </nb-item>
+        </nb-form>
+        <nb-button block @click="showPasswords()">
+          <nb-text>
+            Show
+          </nb-text>
+        </nb-button>
+        <nb-button block :style="{ margin: 15, marginTop: 50 }">
+            <nb-text>Sign In</nb-text>
+        </nb-button>
+             </nb-content>
     </nb-container>
 </template>
 
@@ -22,28 +35,19 @@
 import React from "react";
 import { Button, Icon, Text, View } from "native-base";
 export default {
-  methods: {
-    getSwipeLeftComponet: function() {
-      return (
-        <Button success onPress={() => alert("Add")}>
-          <Icon active name="add" style={{ color: "#FFF" }} />
-        </Button>
-      );
-    },
-    getSwipeRightComponet: function() {
-      return (
-        <Button danger onPress={() => alert("Trash")}>
-          <Icon active name="trash" />
-        </Button>
-      );
-    },
-    getSwipeBodyComponet: function() {
-      return (
-        <View style={{ paddingLeft: 20 }}>
-          <Text>Swipe me to left and right</Text>
-        </View>
-      );
+  data: function(){
+    return{
+      email: '',
+      password: '',
+      isShowpasswords: false
     }
+  },
+  methods: {
+    showPasswords: function(){
+      alert("11")
+      const _self = this
+      _self.isShowpasswords = true
+    },
   }
 };
 </script>
